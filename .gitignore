@@ -1,0 +1,6 @@
+db.sqlite3
+*local_settings.py
+*.pyc
+*__pycache__
+media/
+
