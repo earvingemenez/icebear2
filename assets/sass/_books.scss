@@ -1,0 +1,495 @@
+.create-book-intro{
+  .book-form{
+    position:relative;
+    height: 550px;
+    margin-top: 100px;
+    padding: 0 80px;
+    h3{
+      font-size: 15px;
+      font-family: $Montserrat;
+      line-height: 0.38;
+      margin: 0 15px 20px;
+    }
+    .cover{
+      height: 100%;
+      &-upload-container{
+        border: 2px dashed $greenish-teal;
+        height: 80%;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span{
+          font-size: 79px;
+          color: $silver;
+        }
+        h3{
+          margin:0;
+          font-family: $Lato-Light;
+          font-size: 24px;
+          color: $greyish-brown-three;
+        }
+        h5{
+          font-size: 16px;
+          color: $silver-two;
+        }
+        &:hover,&:focus{
+          border: 2px dashed $topaz;
+          span{
+            color: $bluey-grey;
+          }
+          h5{
+            color: $bluey-grey;
+          }
+        }
+      }
+    }
+    .details{
+      .do-later{
+        display: flex;
+        align-items: baseline;
+        height: 45px;
+        a{
+          color: $greenish-teal;
+          .text{
+            font-size: 16px;
+            line-height: 2.5;
+            position: absolute;
+            right: 45px;
+          }
+          .arrow{
+            font-size: 31px;
+            position: absolute;
+            right: 17px;
+          }
+          &:hover,&:focus{
+            color: $topaz;
+          }
+        }
+      }
+      .field-control{
+        &-1{
+          margin: 10px 0 15px;
+          label{
+            width:100%;
+            font-size: 12px;
+            line-height: 0.43;
+            color: $silver-two;
+            font-family: $Montserrat;
+          }
+          input, textarea, select{
+            width: 100%;
+            border: none;
+            background-color: transparent;
+            border-bottom: 1px solid $silver-two;
+            outline: 0;
+            &:focus,&:hover{
+              border-bottom: 1px solid $greenish-teal;
+            }
+            &::placeholder{
+              color: $bluey-grey;
+            }
+          }
+          input {
+            height: 52px;
+            background-color: transparent;
+            outline: 0;
+            color: $greyish-brown-three;
+            &.title{
+              font-size: 20px;
+              font-weight: 600;
+              line-height: 0.3;
+              color: $dark-grey-blue;
+              font-family: $Roboto;
+            }
+          }
+          textarea{
+            font-size: 15px;
+            line-height: 1.5;
+            height: 110px;
+          }
+          &.actions{
+            display:flex;
+            align-items: center;
+            height: 40px;
+            margin-top: 25px;
+            a{
+              position: absolute;
+              right: 125px;
+              font-size: 16px;
+              line-height: 1.5;
+              color: $greenish-teal;
+              text-decoration: none;
+              &:hover,&:focus{
+                color:$topaz;
+              }
+            }
+            button{
+              position: absolute;
+              right: 0;
+              border:0;
+              background-color: $greenish-teal;
+              padding: 0px 25px;
+              border-radius: 25px;
+              div{
+                display:flex;
+                align-items:center;
+                span{
+                  color: $white;
+                  &.text{
+
+                  }
+                  &.arrow{
+                    font-size: 28px;
+                    margin-left: 10px;
+                  }
+                }
+              }
+              &:hover,&:focus{
+                background-color: $topaz;
+              }
+            }
+          }
+        }
+        &-2{
+          margin: 10px 0 15px;
+          width:49%;
+          display: inline-block;
+          padding: 0 15px;
+          &.no-padding-l{
+            padding-left: 0;
+          }
+          &.no-padding-r{
+            padding-right: 0;
+          }
+          label{
+            width:100%;
+            font-size: 12px;
+            line-height: 0.43;
+            color: $silver-two;
+            font-family: $Montserrat;
+          }
+          select, input{
+            background-color: transparent;
+            border: none;
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid $silver-two;
+            border-radius: 0;
+            -webkit-appearance: none;
+            -webkit-border-radius: 0px;
+            outline: 0;
+            &:focus,&:hover{
+              border-bottom: 1px solid $greenish-teal;
+            }
+            &::placeholder{
+              color: $bluey-grey;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.create-book-body{
+  .left-sidebar{
+    display: flex;
+    &-panel{
+      width: 74px;
+      height: 100%;
+      border-right: 0.5px solid $white-five;
+      border-radius: 0;
+      ul{
+        list-style: none;
+        padding-left: 0;
+        margin: 45px 0;
+        li{
+          display: block;
+          padding: 15px;
+          text-align: center;
+          a{
+            color: $bluey-grey;
+            span{
+              font-size: 23px;
+            }
+            &:hover,&:focus{
+              color: $greenish-teal;
+            }
+          }
+          &.active{
+            a{
+              color: $greenish-teal;
+            }
+          }
+        }
+      }
+    }
+    &-pages{
+      border-right: 0.5px solid $white-five;
+      width: 180px;
+      height: 100%;
+      background-color: $white-four;
+      h4{
+        font-size: 12px;
+        margin:0;
+        color: $dark;
+        margin: 20px 27px 10px;
+      }
+      .book{
+        height: 100%;
+        margin: 10px 15px;
+        overflow-y: auto;
+        &-item{
+          margin-bottom: 10px;
+          p{
+            text-align: right;
+            margin: 0 12px 4px;
+            color: $warm-grey-three;
+            font-size: 12px;
+            font-family: $Montserrat;
+          }
+          .preview{
+            display: flex;
+            justify-content: center;
+            .page{
+              width: 123px;
+              height: 160px;
+              background-color: $white;
+              box-shadow: 0px 2px 5.8px 0.2px rgba($dark, 0.07);
+            }
+          }
+          &.active,&:focus{
+            .preview{
+              .page{
+                border: 3px solid $greenish-teal;
+              }
+            }
+          }
+          &:hover{
+            .preview{
+              .page{
+                border: 3px solid rgba($greenish-teal, 0.4);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main-container{
+    right: 277px !important;
+    .main-content{
+      margin: 50px 60px 0;
+      position: relative;
+      .control-panel{
+        background-color: #1b2733;
+        position: sticky;
+        top: 40px;
+        border-radius: 4px;
+        padding:0 10px;
+        width: 245px;
+        ul{
+          li{
+            a{
+              padding: 8px 11px;
+              span{
+                font-size: 21px;
+                color: $white;
+              }
+              &:hover,&:focus{
+                background-color: transparent;
+                span{
+                  color: $greenish-teal;
+                }
+              }
+            }
+          }
+        }
+      }
+      .book{
+        margin-top: 25px;
+        width: 100%;
+        height: 100%;
+        &-item{
+          height: 900px;
+          margin-bottom: 40px;
+          .page{
+            background-color: $white;
+            height:100%;
+            box-shadow: 0px 2px 4.5px 1px rgba($black, 0.12);
+            padding: 40px;
+            &:focus {
+              outline: 0;
+            }
+            span{
+              margin: 0 1px;
+              border-right: .15em solid transparent;
+              &.cw{
+                border-right: .15em solid $dark-grey-blue;
+                animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+                @keyframes typing {
+                  from { width: 0 }
+                  to { width: 100% }
+                }
+                @keyframes blink-caret {
+                  from, to { border-color: transparent }
+                  50% { border-color: $dark-grey-blue; }
+                }
+              }
+              &.selected{
+                background-color: red;
+              }
+            }
+          }
+          &.last{
+            margin-bottom: 150px;
+          }
+        }
+      }
+    }
+  }
+
+  .right-sidebar{
+    width: 277px;
+    border-left: solid 0.5px $white-five;
+    &-head{
+      margin:0;
+      padding: 8px 20px 12px;
+      height: initial;
+      border-bottom: 1px solid $white-four;
+      ul{
+        li{
+          a{
+            padding:8px 0;
+            margin-right: 15px;
+            background-color: transparent;
+            color: $dark;
+            font-size: 12px;
+            letter-spacing: 0.7px;
+            &:hover,&:focus{
+              border-bottom: 2px solid $greenish-teal;
+            }
+          }
+          &.active{
+            a{
+              border-bottom: 2px solid $greenish-teal;
+            }
+          }
+        }
+      }
+    }
+    &-content{
+      .panel{
+        .field-control{
+          &-1,&-3{
+            .dropdown{
+              &.open{
+                ul{
+                  width: 100%;
+                  border-radius: 8px;
+                  &.dropdown-lg{
+                    border-radius: 12px;
+                    li{
+                      a{
+                        border-bottom: 1px solid $silver;
+                        padding: 12px 25px;
+                        &.last{
+                          border-bottom: 0;
+                        }
+                        &:hover,&:focus{
+                          background-color: $white-two;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+          &-1{
+            margin: 15px 0 10px;
+            width: 100%;
+            label{
+              font-size: 12px;
+              color: $silver-two;
+              margin: 0 20px;
+            }
+            .dropdown{
+              margin: 0 20px;
+              button{
+                width: 100%;
+                border: 0;
+                background-color: transparent;
+                display: flex;
+                align-items: center;
+                height: 40px;
+                .text{
+                  position: absolute;
+                  left: 0;
+                }
+                .icon{
+                  position: absolute;
+                  right: 0;
+                }
+              }
+            }
+            .format{
+              &-item{
+                display: inline-block;
+                margin: 5px;
+                a{
+                  span{
+                    font-size: 45px;
+                  }
+                }
+              }
+            }
+          }
+          &-3{
+            margin: 15px 0 10px;
+            width: 32%;
+            display: inline-block;
+            label{
+              font-size: 12px;
+              color: $silver-two;
+              margin: 0 20px;
+            }
+            .dropdown{
+              margin: 0 21px;
+              button{
+                width: 100%;
+                border: 0;
+                background-color: transparent;
+                display: flex;
+                align-items: center;
+                height: 40px;
+                .text{
+                  position: absolute;
+                  left: 0;
+                  font-size: 13px;
+                }
+                .text-icon{
+                  font-size: 26px;
+                }
+                .icon{
+                  position: absolute;
+                  right: 0;
+                }
+              }
+              .dropdown-menu {
+                right:0;
+                left:auto;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+

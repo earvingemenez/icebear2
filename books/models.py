@@ -18,8 +18,16 @@ class Book(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
+    _default_title = "UNTITLED"
+
     def __str__(self):
         return "{}".format(self.title)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.title = self.title or self._default_title 
+
+        return super(Book, self).save(*args, **kwargs)
 
 
 class Category(models.Model):

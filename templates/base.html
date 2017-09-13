@@ -1,0 +1,28 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Icebear's Stories</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'bower_components/bootstrap/dist/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'bower_components/Ionicons/css/ionicons.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+  <base href="/">
+</head>
+
+<body ng-app="icebear">
+
+  <div main-nav></div>
+
+  <ui-view></ui-view>
+
+  {% include 'includes/scripts.html' %}
+  {% include 'includes/modules.html' %}
+</body>
+
+</html>

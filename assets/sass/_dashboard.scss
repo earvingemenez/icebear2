@@ -1,0 +1,427 @@
+.dashboard{
+  
+  .main-container{
+    .content{
+      padding: 30px 30px 0 30px;
+      position: relative;
+      &-nav{
+        position: sticky;
+        top: 0px;
+        background-color: $white-six;
+        z-index: 1;
+        ul{
+          width:100%;
+          li{
+            a{
+              font-size: 13px;
+              line-height: 1.43;
+              color: $silver;
+              font-family: $Montserrat;
+              padding: 10px 0;
+              margin: 10px 15px;
+              border-bottom: 2px solid transparent;
+              &:hover,&.active{
+                background-color: transparent;
+                border-bottom: 2px solid $greenish-teal;
+                color: $greenish-teal;
+              }
+            }
+          }
+        }
+      }
+      &-feed{
+        padding: 10px 15px;
+        position: relative;
+        display: flex;
+        .feed{
+          background-color: transparent;
+          width: 65%;
+          &-item{
+            width: 100%;
+            background-color: $white;
+            padding: 20px 30px;
+            border-radius: 4px;
+            margin-bottom: 30px;
+            &-header{
+              display: flex;
+              position:relative;
+              .user{
+                display: flex;
+                align-items: center;
+                img{
+                  width: 36px;
+                  height: 37px;
+                  border-radius: 20px
+                }
+                &-detail{
+                  margin-left: 8px;
+                  h3{
+                    font-size: 14px;
+                    line-height: 1.43;
+                    color: $greenish-teal;
+                    font-family: $Montserrat;
+                    margin: 0;
+                  }
+                  p{
+                    font-size: 11px;
+                    color: $bluey-grey;
+                    margin:0;
+                  }
+                }
+              }
+              .option{
+                right: 0;
+                position: absolute;
+                a{
+                  font-size: 21px;
+                  color: $bluey-grey;
+                }
+              }
+            }
+            &-content{
+              .activity{
+                margin: 36px 0 34px;
+                p{
+                  margin:0;
+                  font-size: 13px;
+                  line-height: 1.43;
+                  color: $warm-grey-two;
+                  .book{
+                    color: $greenish-teal;
+                    text-decoration: none;
+                    font-family: $Lato-Light;
+                  }
+                }
+              }
+              .status{
+                margin:17px 0 40px;
+                p{
+                  margin:0;
+                  font-size: 13px;
+                  line-height: 1.72;
+                  color: $warm-grey-two;
+                }
+              }
+              .preview{
+                display: flex;
+                img{
+                  width: 132px;
+                  height: 195px;
+                  border-radius: 10px;
+                }
+                &-detail{
+                  margin-left: 24px;
+                  h3{
+                    font-size: 16px;
+                    font-family: $Montserrat;
+                    margin: 0;
+                  }
+                  .category{
+                    display: flex;
+                    position: relative;
+                    height: 16px;
+                    margin: 5px 0 20px;
+                    color: $bluey-grey;
+                    &-name{
+                      position: absolute;
+                      left: 0;
+                    }
+                    &-price{
+                      position: absolute;
+                      right: 0;
+                    }
+                    span{
+                      font-size: 12px;
+                    }
+                  }
+                  .review{
+                    &-item{
+                      p{
+                        color: $bluey-grey;
+                        font-style: italic;
+                      }
+                      span{
+                        color: $bluey-grey;
+                      }
+                    }
+                    .pagination{
+                      display: flex;
+                      justify-content: center;
+                      div{
+                        background-color: $white-three;
+                        border-radius: 5px;
+                        margin: 2px;
+                        width: 6px;
+                        height: 6px;
+                        &.active, &:hover, &:focus{
+                          background-color: $pinkish-grey;
+                        }
+                      }
+                    }
+                  }
+                  .read-btn{
+                    a{
+                      border: 1px solid $greenish-teal;
+                      width: 100%;
+                      color: $greenish-teal;
+                    }
+                  }
+                }
+              }
+            }
+            &-footer{
+              .action{
+                margin: 40px 0;
+                display: flex;
+                position: relative;
+                &-item{
+                  position: absolute;
+                  color: $silver;
+                  div{
+                    a{
+                      text-decoration: none;
+                      color: $silver;
+                    }
+                    &:hover{
+                      color: $bluey-grey;
+                      a{
+                        color: $bluey-grey;
+                      }
+                    }
+                    &.like{
+                      &:hover{
+                        color: $red-pink;
+                        a{
+                          color: $red-pink;
+                        }
+                      }
+                    }
+                  }
+                  &.left{
+                    left:0;
+                    display:flex;
+                    div{
+                      margin: 0 10px 0 0;
+                    }
+                  }
+                  &.right{
+                    right:0;
+                  }
+                }
+              }
+              .comment{
+                &-item{
+                  display: flex;
+                  margin: 15px 0;
+                  img{
+                    width: 32px;
+                    height: 33px;
+                    border-radius: 16px;
+                  }
+                  .detail{
+                    margin-left: 10px;
+                    .head{
+                      display: flex;
+                      h5{
+                        margin:0;
+                        font-size: 13px;
+                        margin-right: 5px;
+                      }
+                      span{
+                        color: $bluey-grey;
+                        font-size: 12px;
+                        margin-left: 5px;
+                      }
+                    }
+                    .comment-content{
+                      padding:0;
+                      p{
+                        color: $warm-grey-two;
+                        margin-bottom:4px;
+                      }
+                    }
+                    .foot{
+                      a{
+                        color: $greenish-teal;
+                        text-decoration: none;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .right-pane{
+          width: 30%;
+          position: relative;
+          .blurb{
+            border-radius: 4px;
+            margin-left: 25px;
+            padding: 20px 30px;
+            width: 100%;
+            background-color: $white;
+            position: sticky;
+            top: 59px;
+            &-header{
+              display: flex;
+              position: relative;
+              height: 21px;
+              h3{
+                margin:0;
+                font-size: 16px;
+                left: 0;
+                position: absolute;
+              }
+              .option{
+                right: 0;
+                position: absolute;
+                a{
+                  span{
+                    font-size: 21px;
+                    color: $bluey-grey;
+                  }
+                }
+              }
+            }
+            &-content{
+              margin: 20px 0 0;
+              .image{
+                display: flex;
+                justify-content: center;
+                img{
+                  width: 115px;
+                  height: 165px;
+                }
+              }
+              .detail{
+                margin-top: 18px;
+                a{
+                  text-decoration: none;
+                  h4{
+                    font-size: 16px;
+                    font-family: $Roboto;
+                    color: $greenish-teal;
+                    margin: 0 0 5px 0;
+                  }
+                }
+                p{
+                  margin: 0;
+                  font-size: 13px;
+                  color: #727272;
+                }
+              }
+              .profile{
+                display: flex;
+                margin: 15px 0 0;
+                img{
+                  width: 36px;
+                  height: 37px;
+                  border-radius: 20px;
+                }
+                .user-detail{
+                  margin-left: 8px;
+                  a{
+                    text-decoration: none;
+                    color: inherit;
+                    h5{
+                      margin:0;
+                    }
+                  }
+                  p{
+                    margin:0;
+                    font-size: 12px;
+                    color: $warm-grey-two;
+                  }
+                }
+              }
+            }
+          }
+          .suggestion{
+            border-radius: 4px;
+            margin-top: 20px;
+            margin-left: 25px;
+            padding: 20px 30px;
+            width: 100%;
+            background-color: $white;
+            position: sticky;
+            top: 456px;
+            &-header{
+              display: flex;
+              position: relative;
+              height: 21px;
+              h3{
+                margin:0;
+                font-size: 16px;
+                left: 0;
+                position: absolute;
+              }
+              .option{
+                right: 0;
+                position: absolute;
+                a{
+                  span{
+                    font-size: 21px;
+                    color: $bluey-grey;
+                  }
+                }
+              }
+            }
+
+            &-content{
+              height: 175px;
+              .user{
+                &-item{
+                  display: flex;
+                  position: relative;
+                  margin: 15px 0;
+                  align-items: center;
+                  height: 45px;
+                  .left{
+                    position: absolute;
+                    left: 0;
+                    display: flex;
+                    img{
+                      width: 36px;
+                      height: 37px;
+                      border-radius: 20px;
+                    }
+                    .user-detail{
+                      margin-left: 8px;
+                      a{
+                        text-decoration: none;
+                        color: inherit;
+                        h5{
+                          margin: 0;
+                        }
+                      }
+                      p{
+                        margin:0;
+                        font-size: 12px;
+                        color: $warm-grey-two;
+                      }
+                    }
+                  }
+                  .right{
+                    position: absolute;
+                    right: 0;
+                    a{
+                      span{
+                        font-size: 30px;
+                        color: $greenish-teal;
+                        &:hover{
+                          color: $topaz;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

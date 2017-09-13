@@ -9,6 +9,7 @@ from django.dispatch import receiver
 from django.utils.translation import ugettext_lazy as _
 
 from rest_framework.authtoken.models import Token
+from .utils import user_image_dir
 
 
 
@@ -42,6 +43,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=150, unique=True)
     first_name = models.CharField(max_length=40, null=True, blank=True)
     last_name = models.CharField(max_length=40, null=True, blank=True)
+    image = models.ImageField(upload_to=user_image_dir, null=True, blank=True)
 
     date_joined = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
