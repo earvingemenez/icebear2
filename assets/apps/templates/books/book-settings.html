@@ -13,39 +13,41 @@
       </div>
       
       <div class="col-md-8 details">
-        <div class="clearfix text-right do-later">
-          <a href="">
-            <span class="text">Do this later</span>
-            <span class="arrow ion-ios-arrow-thin-right"></span>
-          </a>
-        </div>
-        <div class="field-control-1">
-          <label>Title</label>
-          <input class="title" type="text" name="title" placeholder="Write your title in here">
-        </div>
-        <div class="field-control-1">
-          <label>Description</label>
-          <textarea name="desc" placeholder="Write your title in here"></textarea>
-        </div>
-        <div class="field-control-2 no-padding-l">
-          <label>Category</label>
-          <select>
-            <option>Science Fiction</option>
-          </select>
-        </div>
-        <div class="field-control-2 no-padding-r">
-          <label>Tags</label>
-          <input type="text" name="tags" placeholder="Add tags in here">
-        </div>
-        <div class="field-control-1 actions">
-          <a href="">Back</a>
-          <button type="submit">
-            <div>
-              <span class="text">Next</span>
+        <form ng-submit="ctrl.updateBook()">
+          <div class="clearfix text-right do-later">
+            <a ui-sref="book-editor({'id': BookService.book.id})">
+              <span class="text">Do this later</span>
               <span class="arrow ion-ios-arrow-thin-right"></span>
-            </div>
-          </button>
-        </div>
+            </a>
+          </div>
+          <div class="field-control-1">
+            <label>Title</label>
+            <input ng-model="BookService.book.title" class="title" type="text" placeholder="Write your title in here">
+          </div>
+          <div class="field-control-1">
+            <label>Description</label>
+            <textarea ng-model="BookService.book.desc" placeholder="Write your title in here"></textarea>
+          </div>
+          <div class="field-control-2 no-padding-l">
+            <label>Category</label>
+            <select>
+              <option>Science Fiction</option>
+            </select>
+          </div>
+          <div class="field-control-2 no-padding-r">
+            <label>Tags</label>
+            <input type="text" name="tags" placeholder="Add tags in here">
+          </div>
+          <div class="field-control-1 actions">
+            <a href="">Save</a>
+            <button type="submit">
+              <div>
+                <span class="text">Save and Continue</span>
+                <span class="arrow ion-ios-arrow-thin-right"></span>
+              </div>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>

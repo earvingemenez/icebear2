@@ -5,15 +5,57 @@
     .module('books.icebear')
     .controller('BookController', BookController)
     .controller('BookEditorController', BookEditorController)
+    .controller('BookCreateController', BookCreateController)
   ;
+
+
+  /* BOOK CREATE CONTROLLER
+   *  @desc : controller which creates a new book
+   */
+  function BookCreateController ($scope, $state, BookService) {
+    var bookId = undefined;
+
+    init();
+
+    function init () {
+      /* send create book endpoint
+       */
+      BookService.create().then(function (resp) {
+        bookId = resp.data.id;
+        $state.go('book-settings', {'id': bookId});
+      });
+    };
+  };
 
 
   /* BOOK CONTROLLER
    *  @desc : controller which contains methods related to the
    *          book module
    */
-  function BookController ($scope, $state) {
+  function BookController ($scope, $state, $stateParams, BookService) {
+    $scope.BookService = BookService;
 
+
+    // initialize book detail
+    init($stateParams.id);
+
+    function init (id) {
+      BookService.detail(id).then(function (resp) {
+        BookService.book = resp.data;
+
+        // after book is loaded, initially load the 1st chapter
+        BookDataService.getChapter()
+      });
+    };
+
+    this.updateBook = function () {
+      var b = BookService.book;
+
+      BookService.update(b.id, b).then(function (resp) {
+        // save and next
+        $state.go('book-editor', {'id': b.id});
+      });
+    };
   };
 
 
@@ -91,8 +133,7 @@
         curWord.innerHTML = PageService.addtext(curWord, event.key);
         return;
       }
-    }
-
+    };
   };
 
 

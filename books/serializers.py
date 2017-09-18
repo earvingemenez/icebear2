@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Book
+from .models import Book, Chapter, Page
 
 
 class BookSerializer(serializers.ModelSerializer):
@@ -27,3 +27,31 @@ class BookSerializer(serializers.ModelSerializer):
     def create(self, data):
         data['user'] = self.user
         return super(BookSerializer, self).create(data)
+
+
+class ChapterSerializer(serializers.ModelSerializer):
+    """ chapter serializer
+    """
+    class Meta:
+        model = Chapter
+        fields = (
+            'id',
+            'index',
+            'date_created',
+            'date_updated',
+        )
+
+
+class PageSerializer(serializers.ModelSerializer):
+    """ page serializer
+    """
+    class Meta:
+        model = Page
+        fields = (
+           'id',
+           'chapter',
+           'index',
+           'data',
+           'date_created',
+           'date_updated', 
+        )

@@ -7,6 +7,11 @@
 
   function routes ($stateProvider, TEMPLATE_URL) {
     $stateProvider
+      .state('book-create', {
+        url           : '/books/create/',
+        controller    : 'BookCreateController',
+        controllerAs  : 'ctrl'
+      })
       .state('book-settings', {
         url           : '/books/:id/',
         templateUrl   : TEMPLATE_URL + 'book-settings.html',

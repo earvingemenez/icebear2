@@ -4,16 +4,22 @@
   angular
     .module('books.icebear')
     .service('PageService', PageService)
+    .service('BookService', BookService)
   ;
+
+  var API_URL = '/api/books/';
 
 
   /* BOOK SERVICE
    *  @desc : service which contains methods to be
    *          used for creating/managing a book
    */
-  function BookService ($http, API_URL) {
+  function BookService ($http) {
     var fns = {
-      create : create
+      book   : {},
+      create : create,
+      update : update,
+      detail : detail
     };
 
     return fns;
@@ -21,17 +27,53 @@
 
     function create (d) {
       // create a blank book with initial data
-      return $http.post(API_URL + 'create/', d);
+      return $http.post(API_URL, d);
+    };
+
+    function update (id, d) {
+      // update the book detail
+      return $http.post(API_URL + id + '/', d);
+    };
+
+    function detail (id) {
+      return $http.get(API_URL + id + '/');
+    };
+  };
+
+  function BookDataService ($http) {
+    var fns = {
+      chapters : chapters,
+      chapter  : getChapter,
+      pages    : pages,
+      page     : getPage
+    };
+
+    return fns;
+
+
+    function chapters (bookId) {
+      return $http.get(API_URL + bookId + '/');
+    };
+
+    function getChapter (bookId, chapterId) {
+      return $http.get(API_URL + bookId + 'chapters/');
+    };
+
+    function pages (bookId, chapterId) {
+      return $http.get(API_URL + bookId + 'chapters/' + chapterId + '/');
+    };
+
+    function getPage (bookId, chapterId, pageId) {
+      return $http.get(API_URL + bookId + 'chapters/' + chapterId + '/pages/' + pageId '/');
     };
 
   };
-
 
   /* PAGE SERVICE
    *  @desc : service which contains helpers to be used
    *          in the book page.
    */
-  function PageService ($http, API_URL) {
+  function PageService ($http) {
     var fns = {
       cursor         : "<span class='cursor'></span>",
       cursoroffset   : 0,
@@ -122,7 +164,6 @@
         return null;
       }
     }
-
   };
 
 })();

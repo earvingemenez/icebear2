@@ -93,6 +93,7 @@
     return {
       request: function (conf) {
         conf.headers['Authorization'] = "token " + getToken().token;
+        conf.headers['Content-Type'] = "application/json";
 
         return conf;
       }
