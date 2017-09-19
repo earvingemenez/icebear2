@@ -5,6 +5,7 @@
     .module('books.icebear')
     .service('PageService', PageService)
     .service('BookService', BookService)
+    .service('BookDataService', BookDataService)
   ;
 
   var API_URL = '/api/books/';
@@ -42,29 +43,32 @@
 
   function BookDataService ($http) {
     var fns = {
-      chapters : chapters,
-      chapter  : getChapter,
-      pages    : pages,
-      page     : getPage
+      getChapters : getChapters,
+      chapters : [],
+      getChapter  : getChapter,
+      getPages    : getPages,
+      getPage : getPage
     };
 
     return fns;
 
 
-    function chapters (bookId) {
-      return $http.get(API_URL + bookId + '/');
+    function getChapters (bookId) {
+      return $http.get(API_URL + bookId + '/chapters/').then(function (resp) {
+        fns.chapters = resp.data;
+      });
     };
 
     function getChapter (bookId, chapterId) {
-      return $http.get(API_URL + bookId + 'chapters/');
+      return $http.get(API_URL + bookId + '/chapters/' + chapterId + '/');
     };
 
-    function pages (bookId, chapterId) {
-      return $http.get(API_URL + bookId + 'chapters/' + chapterId + '/');
+    function getPages (bookId, chapterId) {
+      return $http.get(API_URL + bookId + '/chapters/' + chapterId + '/pages/');
     };
 
     function getPage (bookId, chapterId, pageId) {
-      return $http.get(API_URL + bookId + 'chapters/' + chapterId + '/pages/' + pageId '/');
+      return $http.get(API_URL + bookId + '/chapters/' + chapterId + '/pages/' + pageId + '/');
     };
 
   };

@@ -5,7 +5,7 @@ class EndpointMixin(object):
     """ model manager for viewsets
     """
     def __init__(self, *args, **kwargs):
-        return super(ModelMixin, self).__init__(*args, **kwargs)
+        return super(EndpointMixin, self).__init__(*args, **kwargs)
 
     def get_model(self):
         """ get model class based on the

@@ -35,19 +35,6 @@
   function BookController ($scope, $state, $stateParams, BookService) {
     $scope.BookService = BookService;
 
-
-    // initialize book detail
-    init($stateParams.id);
-
-    function init (id) {
-      BookService.detail(id).then(function (resp) {
-        BookService.book = resp.data;
-
-        // after book is loaded, initially load the 1st chapter
-        BookDataService.getChapter()
-      });
-    };
-
     this.updateBook = function () {
       var b = BookService.book;
 
@@ -63,7 +50,25 @@
    *  @desc : controller which contains methods related to
    *          editing the book
    */
-  function BookEditorController ($scope, $state, PageService) {
+  function BookEditorController ($scope, $state, $stateParams, $q,
+    BookService, BookDataService, PageService) {
+
+    $scope.BookDataService = BookDataService;
+
+    // initialize book detail
+    init($stateParams.id);
+
+    function init (id) {
+      BookService.detail(id).then(function (resp) {
+        BookService.book = resp.data;
+
+        // load chapters
+        $q.all([BookDataService.getChapters(BookService.book.id)])
+          .then(function (resp) {
+              console.log(BookDataService.chapters);
+          });
+      });
+    };
 
     this.click = function (event) {
       /* method that will set a specific word to focus

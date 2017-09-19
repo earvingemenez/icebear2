@@ -29,19 +29,6 @@ class BookSerializer(serializers.ModelSerializer):
         return super(BookSerializer, self).create(data)
 
 
-class ChapterSerializer(serializers.ModelSerializer):
-    """ chapter serializer
-    """
-    class Meta:
-        model = Chapter
-        fields = (
-            'id',
-            'index',
-            'date_created',
-            'date_updated',
-        )
-
-
 class PageSerializer(serializers.ModelSerializer):
     """ page serializer
     """
@@ -54,4 +41,24 @@ class PageSerializer(serializers.ModelSerializer):
            'data',
            'date_created',
            'date_updated', 
+        )
+
+
+class ChapterSerializer(serializers.ModelSerializer):
+    """ chapter serializer
+    """
+    pages = serializers.SerializerMethodField()
+
+    def get_pages(self, instance):
+        return PageSerializer(
+            Page.objects.filter(chapter=instance), many=True).data
+
+    class Meta:
+        model = Chapter
+        fields = (
+            'id',
+            'index',
+            'date_created',
+            'date_updated',
+            'pages',
         )
