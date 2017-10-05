@@ -1,11 +1,21 @@
-<div class="wrapper create-book-body">
+<div class="wrapper create-book-body" ng-init="ctrl.init($stateParams.id)">
   <div class="content-wrapper">
 
   <div class="left-sidebar">
     
     <div class="left-sidebar-panel">
       <ul>
-        <li class="active">
+        <li class="active" uib-dropdown>
+          <a href="" uib-dropdown-toggle>
+            <span class="ion-ios-folder"></span>
+          </a>
+          <ul class="dropdown-menu" uib-dropdown-menu>
+            <li ng-repeat="chapter in BookDataService.chapters track by $index">
+              <a href="#">{{ chapter.title }}</a>
+            </li>
+          </ul>
+        </li>
+        <li>
           <a href="">
             <span class="ion-ios-albums-outline"></span>
           </a></li>
@@ -25,7 +35,7 @@
     </div>
     
     <div class="left-sidebar-pages">
-      <h4>PAGES</h4>
+      <h4>PAGES {{ BookDataService.chapter }}</h4>
       <div class="book">
         
         <div ng-repeat="page in BookDataService.chapters[0].pages track by $index" class="book-item active">
@@ -42,7 +52,7 @@
 
   <div class="main-container">
     <div class="main-content">
-    
+    <!-- 
       <div class="control-panel clearfix">
         <ul class="navbar-nav nav">
           <li><a href="#">
@@ -64,7 +74,7 @@
             <span class="ion-android-attach"></span>
           </a></li>
         </ul>
-      </div>
+      </div> -->
     
       <div class="book">
         <div class="book-item last">

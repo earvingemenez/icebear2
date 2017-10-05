@@ -11,6 +11,7 @@
     .constant('API_URL', '/api/')
     .config(csrf)
     .config(header)
+    .run(scope)
   ;
 
   /* CSRF TOKEN */
@@ -22,6 +23,11 @@
   /* USER TOKEN */
   function header($httpProvider) {
     $httpProvider.interceptors.push('HttpRequestInterceptor');
-  }
+  };
+
+  function scope ($rootScope, $state, $stateParams) {
+    $rootScope.$state = $state;
+    $rootScope.$stateParams = $stateParams;
+  };
 
 })();

@@ -60,6 +60,7 @@ class Chapter(models.Model):
     """ chapter model
     """
     book = models.ForeignKey(Book)
+    title = models.CharField(max_length=200, null=True, blank=True)
     index = models.PositiveIntegerField(default=1)
 
     date_created = models.DateTimeField(auto_now_add=True)

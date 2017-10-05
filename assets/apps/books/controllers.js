@@ -52,25 +52,26 @@
    */
   function BookEditorController ($scope, $state, $stateParams, $q,
     BookService, BookDataService, PageService) {
+    var self = this;
 
     $scope.BookDataService = BookDataService;
 
     // initialize book detail
-    init($stateParams.id);
+    //init($stateParams.id);
 
-    function init (id) {
+    self.init = function (id) {
       BookService.detail(id).then(function (resp) {
         BookService.book = resp.data;
 
-        // load chapters
-        $q.all([BookDataService.getChapters(BookService.book.id)])
-          .then(function (resp) {
-              console.log(BookDataService.chapters);
-          });
+        // load the first chapter and set it to active
+        var chapter = BookService.book.chapters[0];
+        BookDataService.getChapter(BookService.book.id, chapter.id).then(function (resp) {
+          BookDataService.chapter = resp.data;
+        });
       });
     };
 
-    this.click = function (event) {
+    self.click = function (event) {
       /* method that will set a specific word to focus
        * when clicked.
        */
@@ -94,7 +95,7 @@
       }
     };
 
-    this.typeText = function (event) {
+    self.typeText = function (event) {
       /* catch event when typing while word is on focus
        */
       event.stopPropagation();

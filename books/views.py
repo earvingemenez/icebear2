@@ -64,9 +64,22 @@ class Chapters(EndpointMixin, ViewSet):
     def list(self, *args, **kwargs):
         serializer = self.serializer_class(
             self._filter(book__id=kwargs.get('book_id')),
-            many=True
+            many=True,
+            full=True
         )
 
+        return Response(serializer.data, status=200)
+
+
+class Chapter(EndpointMixin, ViewSet):
+    """ book chapter detail related endpoints
+    """
+    permission_class = (IsAuthenticated,)
+    serializer_class = ChapterSerializer
+
+    def detail(self, *args, **kwargs):
+        serializer = self.serializer_class(
+            self._get(id=kwargs.get('chapter_id')))
         return Response(serializer.data, status=200)
 
 

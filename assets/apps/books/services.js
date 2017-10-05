@@ -43,21 +43,20 @@
 
   function BookDataService ($http) {
     var fns = {
-      getChapters : getChapters,
-      chapters : [],
+      chapter     : undefined,
       getChapter  : getChapter,
       getPages    : getPages,
-      getPage : getPage
+      getPage     : getPage
     };
 
     return fns;
 
 
-    function getChapters (bookId) {
-      return $http.get(API_URL + bookId + '/chapters/').then(function (resp) {
-        fns.chapters = resp.data;
-      });
-    };
+    // function getChapters (bookId) {
+    //   return $http.get(API_URL + bookId + '/chapters/').then(function (resp) {
+    //     fns.chapters = resp.data;
+    //   });
+    // };
 
     function getChapter (bookId, chapterId) {
       return $http.get(API_URL + bookId + '/chapters/' + chapterId + '/');
